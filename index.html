@@ -643,16 +643,54 @@
                         }
                     }
                     
-                    // Enviar datos por email (simulado)
-                    sendEmail(data);
+                    // Función para redirigir a la página de agradecimiento
+                    function redirectToThankYou() {
+                        // Mostrar mensaje de agradecimiento
+                        form.style.display = 'none';
+                        thankYou.style.display = 'block';
+                        
+                        // Redireccionar después de 2 segundos
+                        setTimeout(function() {
+                            window.location.href = 'thank-you.html';
+                        }, 2000);
+                    }
                     
-                    // Mostrar mensaje de agradecimiento
-                    form.style.display = 'none';
-                    thankYou.style.display = 'block';
+                    // Deshabilitar el botón de envío
+                    document.getElementById('submitBtn').disabled = true;
+                    document.getElementById('submitBtn').textContent = 'Enviando...';
                     
-                    // Redireccionar después de 3 segundos
-                    setTimeout(function() {
-                        window.location.href = 'index.html';
+                    // Establecer un tiempo límite para la redirección
+                    const redirectTimeout = setTimeout(() => {
+                        redirectToThankYou();
+                    }, 5000); // 5 segundos como máximo para esperar
+                    
+                    // Enviar datos por email
+                    try {
+                        // Simulación de envío de email
+                        sendEmail(data);
+                        
+                        // Limpiar timeout y redirigir
+                        clearTimeout(redirectTimeout);
+                        redirectToThankYou();
+                    } catch (error) {
+                        // En caso de error, también redirigimos
+                        console.error('Error:', error);
+                        clearTimeout(redirectTimeout);
+                        redirectToThankYou();
+                    }
+                }
+            });
+            
+            // Evento adicional para el botón de envío como respaldo
+            document.getElementById('submitBtn').addEventListener('click', function() {
+                // Validar manualmente los campos requeridos
+                if (validateContactInfo()) {
+                    // Asegurar que después de unos segundos se haga la redirección
+                    // independientemente de si el envío se completó o no
+                    setTimeout(() => {
+                        if (window.location.href.indexOf('thank-you.html') === -1) {
+                            window.location.href = 'thank-you.html';
+                        }
                     }, 3000);
                 }
             });
