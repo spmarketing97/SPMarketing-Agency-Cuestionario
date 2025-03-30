@@ -32,7 +32,7 @@ ASUNTO = "SPMarketing Agency - Cuestionario - Informe Semanal"
 CONTRASEÑA_APP = "jgtq ucny jpxc nyoy"  # Contraseña de aplicación de Google
 
 # Configuración de Analytics
-API_KEY = "AIzaSyBbxgAWvwIf84fiaIJa-F1X_dKEKpQ1ktI"
+API_KEY = "no api"
 VIEW_ID = "GA4_PROPERTY_ID"  # Reemplazar con tu ID de propiedad GA4
 
 # Directorio actual
