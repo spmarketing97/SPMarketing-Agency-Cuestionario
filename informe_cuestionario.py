@@ -26,7 +26,7 @@ logging.basicConfig(
 logger = logging.getLogger('informe_cuestionario')
 
 # Configuración del correo electrónico
-REMITENTE = "informes@spmarketing.agency"  # Remitente (puedes cambiarlo)
+REMITENTE = "solucionesworld2016@gmail.com"  # Remitente (puedes cambiarlo)
 DESTINATARIO = "hristiankrasimirov7@gmail.com"
 ASUNTO = "SPMarketing Agency - Cuestionario - Informe Semanal"
 CONTRASEÑA_APP = "jgtq ucny jpxc nyoy"  # Contraseña de aplicación de Google
